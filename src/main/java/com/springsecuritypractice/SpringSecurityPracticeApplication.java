@@ -1,9 +1,12 @@
 package com.springsecuritypractice;
 
+import com.springsecuritypractice.config.SessionSecurityConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
+@Import(SessionSecurityConfig.class)
 public class SpringSecurityPracticeApplication {
 
     public static void main(String[] args) {

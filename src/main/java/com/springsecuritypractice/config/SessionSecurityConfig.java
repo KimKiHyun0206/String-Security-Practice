@@ -4,7 +4,6 @@ import com.springsecuritypractice.login.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -18,11 +17,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.filter.CorsFilter;
 
+
+/**
+ * 세션 기반 로그인을 구현한 SecurityConfig
+ * */
 @EnableWebSecurity
 @EnableMethodSecurity
-@Configuration
 @RequiredArgsConstructor
-public class SecurityConfig {
+public class SessionSecurityConfig {
     private final CorsFilter corsFilter;
     private final LoginService userDetailsService;
 
