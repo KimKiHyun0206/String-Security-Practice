@@ -1,6 +1,7 @@
 package com.springsecuritypractice.student.domain;
 
 import com.springsecuritypractice.auth.domain.Authority;
+import com.springsecuritypractice.student.domain.converter.PasswordEncodeConverter;
 import com.springsecuritypractice.student.dto.request.StudentCreateRequest;
 import com.springsecuritypractice.student.dto.response.StudentResponse;
 import jakarta.persistence.*;
@@ -21,6 +22,8 @@ public class Student {
     @Column(name = "student_id")
     private Long id;
     private String loginId;
+
+    @Convert(converter = PasswordEncodeConverter.class)
     private String password;
     private String name;
 
