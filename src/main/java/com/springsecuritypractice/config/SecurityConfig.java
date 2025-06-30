@@ -68,8 +68,9 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/login?logout")
                 )
                 .sessionManagement(session -> session
-                        .invalidSessionUrl("/login")        //세션이 만료되었을 시 이동할 URL
-                        .maximumSessions(1)                 // 한 계정으로 하나의 세션만 유지
+                        .invalidSessionUrl("/login")        // 세션이 만료되었을 시 이동할 URL
+                        .sessionFixation().migrateSession() // 로그인 시점에 세션 ID를 새로 발급해서 세션 탈취를 방지
+                        .maximumSessions(1)                 // 한 계정으로 하나의 세션만 유지 (동시 로그인 제한)
                         .maxSessionsPreventsLogin(false)    // 기존 세션 만료 후 로그인 허용
                 )
                 // enable h2-console
