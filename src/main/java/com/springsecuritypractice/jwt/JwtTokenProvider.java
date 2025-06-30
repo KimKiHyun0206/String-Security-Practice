@@ -15,6 +15,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/**
+ * 토큰 발급, 유효성 검증, 토큰에서 Authentication 객체를 가져오는 역할을 하는 클래스
+ *
+ * @author duskafka
+ */
 @Slf4j
 @RequiredArgsConstructor
 public class JwtTokenProvider {

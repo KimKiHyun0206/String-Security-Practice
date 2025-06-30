@@ -12,6 +12,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * JWT 토큰을 헤더에서 분리하여 SecurityContextHolder에 저장하는 필터
+ *
+ * @author duskafka
+ * @see JwtTokenProvider    이 클래스에서 토큰이 유효한지 검증하고 토큰으로부터 Authentication을 분리한다.
+ * */
 @Slf4j
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
@@ -29,7 +35,6 @@ public class JwtFilter extends OncePerRequestFilter {
         String token = resolveToken(request);
         if (token != null && jwtTokenProvider.validateToken(token)) {
             Authentication authentication = jwtTokenProvider.getAuthentication(token);
-            log.info("[JwtFilter] Authentication {}", authentication.toString());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 
