@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>사용자 홈</title>
+</head>
+<body>
+<h1 th:text="'안녕하세요, ' + ${username} + '님!'">안녕하세요!</h1>
+
+<h2>당신의 권한 목록:</h2>
+<ul>
+    <li th:each="auth : ${authorities}" th:text="${auth}">ROLE_USER</li>
+</ul>
+</body>
+</html>

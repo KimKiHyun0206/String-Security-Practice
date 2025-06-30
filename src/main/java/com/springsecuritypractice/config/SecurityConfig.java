@@ -58,7 +58,7 @@ public class SecurityConfig {
                 )
                 .formLogin(form -> form
                         .loginPage("/login") // 커스텀 로그인 페이지 경로
-                        .defaultSuccessUrl("/name", true)
+                        .defaultSuccessUrl("/auths", true)
                         .usernameParameter("username")  //원한다면 loginId 등으로 변경 가능
                         .passwordParameter("password")
                         .permitAll()
