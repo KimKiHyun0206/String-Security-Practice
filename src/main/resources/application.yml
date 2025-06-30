@@ -1,5 +1,6 @@
 spring:
 
+
   h2:
     console:
       enabled: true
@@ -30,6 +31,10 @@ spring:
       repositories:
         enabled: false
 
+server:
+  servlet:
+    session:
+      timeout: 30m # 기본값
 
 springdoc:
   swagger-ui:
