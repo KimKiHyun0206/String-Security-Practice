@@ -13,7 +13,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: true
@@ -21,7 +21,7 @@ spring:
     defer-datasource-initialization: true
   sql:
     init:
-    # mode: always
+     mode: always
 
   data:
     redis:
@@ -40,7 +40,7 @@ springdoc:
   default-consumes-media-type: application/json # request media type 의 기본 값
   default-produces-media-type: application/json # response media type 의 기본 값
   paths-to-match: # 해당 패턴에 매칭되는 controller만 swagger-ui에 노출한다.
-    - /api/v1/**
+    - /api/**
 
 jwt:
   header: Coding-Mate-Auth
