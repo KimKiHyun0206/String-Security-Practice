@@ -9,6 +9,7 @@ import com.springsecuritypractice.student.dto.response.StudentResponse;
 import com.springsecuritypractice.student.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +36,7 @@ public class StudentService {
 
     @LogReturn
     @Transactional(readOnly = true)
+    @PreAuthorize("hasRole('USER')")
     public StudentResponse read(String loginId) {
         return studentRepository
                 .findOneByLoginId(loginId)
@@ -44,6 +46,7 @@ public class StudentService {
 
     @LogReturn
     @Transactional
+    @PreAuthorize("hasRole('USER')")
     public StudentResponse update(String loginId, StudentUpdateRequest request) {
         Student student = studentRepository.findOneByLoginId(loginId).get();
         student.update(request);
@@ -51,6 +54,7 @@ public class StudentService {
     }
 
     @Transactional
+    @PreAuthorize("hasRole('USER')")
     public void delete(String loginId) {
         if (studentRepository.existsByLoginId(loginId)) {
             studentRepository.deleteByLoginId(loginId);

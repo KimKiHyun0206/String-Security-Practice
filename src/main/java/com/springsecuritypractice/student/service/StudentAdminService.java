@@ -6,6 +6,7 @@ import com.springsecuritypractice.student.dto.request.StudentUpdateRequest;
 import com.springsecuritypractice.student.dto.response.StudentResponse;
 import com.springsecuritypractice.student.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class StudentAdminService {
     }
 
     @Transactional(readOnly = true)
+    @PreAuthorize("hasRole('ADMIN')")
     public List<StudentResponse> readAll(){
         return studentRepository
                 .findAll()
@@ -32,6 +34,7 @@ public class StudentAdminService {
     }
 
     @Transactional(readOnly = true)
+    @PreAuthorize("hasRole('ADMIN')")
     public StudentResponse readById(Long id){
         return studentRepository
                 .findById(id)
@@ -40,6 +43,7 @@ public class StudentAdminService {
     }
 
     @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
     public StudentResponse update(Long id, StudentUpdateRequest request){
         Student student = studentRepository.findById(id).get();
         student.update(request);
@@ -47,6 +51,7 @@ public class StudentAdminService {
     }
 
     @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(Long id){
         if(studentRepository.existsById(id)){
             studentRepository.deleteById(id);
