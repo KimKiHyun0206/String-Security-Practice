@@ -1,4 +1,4 @@
-package com.springsecuritypractice.UIController;
+package com.springsecuritypractice.controller;
 
 import com.springsecuritypractice.student.service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +14,6 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class UIController {
-
-    private final StudentService studentService;
-
     @RequestMapping
     public String home() {
         return "home";
