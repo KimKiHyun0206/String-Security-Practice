@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -35,18 +36,21 @@ public class StudentController {
 
     @Operation(summary = "student 수정")
     @PatchMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<StudentResponse> update(@AuthenticationPrincipal UserDetails userDetails, @RequestBody StudentUpdateRequest request){
         return ResponseEntity.ok(studentService.update(userDetails.getUsername(), request));
     }
 
     @Operation(summary = "student 조회")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<StudentResponse> get(@AuthenticationPrincipal UserDetails userDetails) {
         return ResponseEntity.ok(studentService.read(userDetails.getUsername()));
     }
 
     @Operation(summary = "student 삭제")
     @DeleteMapping
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<StudentResponse> delete(@AuthenticationPrincipal UserDetails userDetails) {
         studentService.delete(userDetails.getUsername());
         return ResponseEntity.noContent().build();
