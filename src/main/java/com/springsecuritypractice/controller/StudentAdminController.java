@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/students/admin")
+@RequestMapping("/api/admin/students")
 public class StudentAdminController {
     private final StudentAdminService studentAdminService;
 
