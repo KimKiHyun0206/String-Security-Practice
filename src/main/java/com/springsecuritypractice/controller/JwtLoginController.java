@@ -1,4 +1,4 @@
-package com.springsecuritypractice.login.controller;
+package com.springsecuritypractice.controller;
 
 import com.springsecuritypractice.jwt.JwtTokenProvider;
 import com.springsecuritypractice.login.dto.LoginRequest;

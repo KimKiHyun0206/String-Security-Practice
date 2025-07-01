@@ -1,5 +1,6 @@
 package com.springsecuritypractice.config;
 
+import com.springsecuritypractice.controller.UIController;
 import com.springsecuritypractice.login.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -23,7 +24,7 @@ import org.springframework.web.filter.CorsFilter;
  * 아래에서 설정한 로그인 URL로 POST 요청이 오면 UsernamePasswordAuthenticationFiler가 요청을 가로채서 로그인을 수행한다.
  *
  * @author duskafka
- * @see com.springsecuritypractice.UIController.UIController    로그인 페이지 등을 보여줄 Controller
+ * @see UIController    로그인 페이지 등을 보여줄 Controller
  * @see UsernamePasswordAuthenticationFilter 요청을 가로챌 필터
  * */
 @EnableWebSecurity

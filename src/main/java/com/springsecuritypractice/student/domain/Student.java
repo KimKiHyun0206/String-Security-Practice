@@ -3,6 +3,7 @@ package com.springsecuritypractice.student.domain;
 import com.springsecuritypractice.auth.domain.Authority;
 import com.springsecuritypractice.student.domain.converter.PasswordEncodeConverter;
 import com.springsecuritypractice.student.dto.request.StudentCreateRequest;
+import com.springsecuritypractice.student.dto.request.StudentUpdateRequest;
 import com.springsecuritypractice.student.dto.response.StudentResponse;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -21,10 +22,15 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
     private Long id;
+
+    @Column(name = "login_id", nullable = false, unique = true)
     private String loginId;
 
     @Convert(converter = PasswordEncodeConverter.class)
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "name", nullable = false)
     private String name;
 
     @ManyToMany
@@ -60,5 +66,9 @@ public class Student {
                 .name(this.name)
                 .authorities(this.authorities)
                 .build();
+    }
+
+    public void update(StudentUpdateRequest request){
+        this.name = request.getName() == null ? name : request.getName();
     }
 }

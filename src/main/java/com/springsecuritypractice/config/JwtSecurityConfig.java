@@ -2,7 +2,7 @@ package com.springsecuritypractice.config;
 
 import com.springsecuritypractice.jwt.JwtFilter;
 import com.springsecuritypractice.jwt.JwtTokenProvider;
-import com.springsecuritypractice.login.controller.JwtLoginController;
+import com.springsecuritypractice.controller.JwtLoginController;
 import com.springsecuritypractice.login.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
