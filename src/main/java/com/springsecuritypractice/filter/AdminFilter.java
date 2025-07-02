@@ -23,7 +23,7 @@ public class AdminFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
 
         // 특정 URI에 인증된 사용자만 접근 허용
-        if (path.startsWith("/api/admin/**")) {
+        if (path.startsWith("/api/admin/")) {
             log.info("[AdminFilter] request URL {}", path);
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
