@@ -1,4 +1,4 @@
-package com.springsecuritypractice.voter.wrapper;
+package com.springsecuritypractice.voter.security5.wrapper;
 
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
@@ -12,6 +12,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.function.Supplier;
 
+/**
+ * 등록된 Voter들을 가지고
+ * */
 public class AccessDecisionManagerWrapper implements AuthorizationManager<RequestAuthorizationContext> {
 
     private final AccessDecisionManager accessDecisionManager;

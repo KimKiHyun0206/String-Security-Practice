@@ -1,4 +1,4 @@
-package com.springsecuritypractice.voter;
+package com.springsecuritypractice.voter.security5;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDecisionVoter;

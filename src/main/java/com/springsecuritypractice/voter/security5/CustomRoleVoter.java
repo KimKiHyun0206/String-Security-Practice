@@ -1,4 +1,4 @@
-package com.springsecuritypractice.voter;
+package com.springsecuritypractice.voter.security5;
 
 import org.springframework.security.access.AccessDecisionVoter;
 import org.springframework.security.access.ConfigAttribute;
